@@ -27,6 +27,7 @@ func main() {
 func handle(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
+		/* The ".text()" method gives us a new line every time we scan */
 		ln := scanner.Text()
 		fmt.Println(ln)
 	}

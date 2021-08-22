@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	/* listen to tcp on port 8080 */
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln(err)
@@ -15,6 +16,8 @@ func main() {
 	defer li.Close()
 
 	for {
+		/* if it was called, we accept.
+		This will give us a connection -> "conn" */
 		conn, err := li.Accept()
 		if err != nil {
 			log.Println(err)
